@@ -1,24 +1,26 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * f_pall - Print all values on the stack.
- * @head: Pointer to the stack head.
- * @number: Line number.
+ * pall_operation - Prints all the elements of the stack.
+ * @head: Pointer to the head of the stack
+ * @counter: Line number (unused)
  *
- * Return: No return value.
+ * Description: This function prints all the elements of the stack,
+ *              starting from the top element to the bottom element.
+ *
+ * Return: No return value
  */
-void f_pall(stack_t **head, unsigned int number)
+void pall_operation(stack_t **head, unsigned int counter)
 {
-	stack_t *current = *head;
+	stack_t *h;
+	(void)counter;
 
-	(void)number;
-
-	while (current != NULL)
+	h = *head;
+	if (h == NULL)
+		return;
+	while (h)
 	{
-		printf("%d\n", current->n);
-		current = current->next;
+		printf("%d\n", h->n);
+		h = h->next;
 	}
 }

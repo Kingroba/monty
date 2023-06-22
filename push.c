@@ -1,21 +1,36 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "monty.h"
 
 /**
- * f_push - Add node to the stack.
- * @head: Pointer to the stack head.
- * @counter: Line number.
- *
- * Return: No return value.
+ * f_push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
  */
 void f_push(stack_t **head, unsigned int counter)
 {
-	int n;
+	int n, j = 0, flag = 0;
 
-	if (!bus.arg)
+	if (bus.arg != NULL)
+	{
+		if (bus.arg[0] == '-')
+			j++;
+
+		for (; bus.arg[j] != '\0'; j++)
+		{
+			if (bus.arg[j] > '9' || bus.arg[j] < '0')
+				flag = 1;
+		}
+
+		if (flag == 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
@@ -25,14 +40,6 @@ void f_push(stack_t **head, unsigned int counter)
 	}
 
 	n = atoi(bus.arg);
-	if (n == 0 && bus.arg[0] != '0')
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", counter);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
-	}
 
 	if (bus.lifi == 0)
 		addnode(head, n);
