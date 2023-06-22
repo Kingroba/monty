@@ -1,17 +1,13 @@
 #include "monty.h"
 
 /**
- * pint_operation - Prints the value at the top of the stack.
- * @head: Pointer to the head of the stack
- * @counter: Line number
+ * f_pint - Prints the top element of the stack.
+ * @head: Pointer to the head of the stack.
+ * @counter: Line number.
  *
- * Description: This function prints the integer value at the top of the stack.
- *              If the stack is empty, an error message is printed and the
- *              program exits with failure.
- *
- * Return: No return value
+ * Return: No return value.
  */
-void pint_operation(stack_t **head, unsigned int counter)
+void f_pint(stack_t **head, unsigned int counter)
 {
 	if (*head == NULL)
 	{
@@ -21,5 +17,6 @@ void pint_operation(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
+
 	printf("%d\n", (*head)->n);
 }

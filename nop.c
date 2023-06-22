@@ -1,17 +1,14 @@
 #include "monty.h"
 
 /**
- * nop_operation - Does nothing.
- * @head: Pointer to the head of the stack
- * @counter: Line number being executed
+ * f_nop - No operation, does nothing.
+ * @head: Pointer to the head of the stack.
+ * @counter: Line number.
  *
- * Description: This function does nothing and serves as a placeholder
- *              for an opcode that has no specific operation.
- *
- * Return: No return value
+ * Return: No return value.
  */
-void nop_operation(stack_t **head, unsigned int counter)
+void f_nop(stack_t **head, unsigned int counter)
 {
-	(void)counter;
-	(void)head;
+    (void)counter;
+    (void)head;
 }

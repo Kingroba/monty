@@ -2,6 +2,8 @@
 #include "monty.h"
 #include <stdio.h>
 
+bus_t bus;
+
 /**
  * main - Monty code interpreter
  * @argc: number of arguments

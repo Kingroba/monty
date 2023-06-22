@@ -1,13 +1,17 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * f_div - Divides the top two elements of the stack.
- * @head: Pointer to the stack head.
+ * @head: Pointer to the head of the stack.
  * @counter: Line number.
  *
- * Return: No return value.
+ * Description: This function divides the value of the second element by the
+ * value of the top element of the stack. If the stack has less than two
+ * elements, an error message is printed to stderr and the program is
+ * terminated. If the top element of the stack is 0, a division by zero error
+ * message is printed and the program is terminated. The result of the division
+ * is stored in the second element, and the first element is removed from the
+ * stack.
  */
 void f_div(stack_t **head, unsigned int counter)
 {
